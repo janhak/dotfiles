@@ -14,14 +14,23 @@ set smartcase   " ignore case if search pattern is all lowercase, case-sensitive
 " Define main keys
 let mapleader = " "
 inoremap jk <ESC>
+inoremap kj <ESC> " Still clumsy?
 
 " Easy movement over folded lines
 nnoremap j gj
 nnoremap k gk
 
-" Easy navigation of source control changes
-map g; :action VcsShowNextChangeMarker<CR>
-map g, :action VcsShowPrevChangeMarker<CR>
+" Easy navigation between version control changes
+nnoremap g; :action VcsShowNextChangeMarker<CR>
+nnoremap g, :action VcsShowPrevChangeMarker<CR>
+
+" Change vim marks for IDE bookmarks
+nnoremap m :action ToggleBookmarkWithMnemonic<CR>
+nnoremap ' :action ShowBookmarks<CR>
+
+" Easy navigation between functions/methods
+nnoremap ] :action MethodDown<CR>
+nnoremap [ :action MethodUp<CR>
 
 " Press s to activate AceJump
 map s :action AceAction<CR>
@@ -29,12 +38,11 @@ map s :action AceAction<CR>
 " Leader Shortcuts
 " :actionlist [pattern] find IDE actions by pattern name
 map <leader>a :action Annotate<CR>
-map <leader>p :action ActivatePythonConsoleToolWindow<CR>
 map <leader>b :action Back<CR>
 map <leader>f :action Forward<CR>
-map <leader>' :action ActivateTerminalToolWindow<CR>
 map <leader>s :action FileStructurePopup<CR>
 
-" Change vim marks for IDE bookmarks
-map m :action ToggleBookmarkWithMnemonic<CR>
-map ' :action ShowBookmarks<CR>
+" Leader Shortcuts for External Tools
+map <leader>p :action ActivatePythonConsoleToolWindow<CR>
+map <leader>' :action ActivateTerminalToolWindow<CR>
+map <leader>l :action Tool_External Tools_pylint<CR>
