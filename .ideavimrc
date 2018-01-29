@@ -44,7 +44,7 @@ map s :action AceAction<CR>
 inoremap jk <ESC>
 inoremap kj <ESC>
 
-" Leaderj
+" Leader
 let mapleader = " "
 
 " Copy until the end of the line
@@ -53,6 +53,10 @@ noremap Y y$
 " Change vim marks for IDE bookmarks
 nnoremap m :action ToggleBookmarkWithMnemonic<CR>
 nnoremap ' :action ShowBookmarks<CR>
+
+" Create newlines without entering insert mode
+nnoremap go o<Esc>k
+nnoremap gO O<Esc>j
 
 " ================================================================
 " Actions
