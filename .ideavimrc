@@ -1,8 +1,14 @@
+" ================================================================
+" Options
+" ================================================================
+
 " set system clipboard as default
 set clipboard=unnamedplus,unnamed
+
 " Enable pope surrond
 set surround
-" set how muh scroling occurs
+
+" set offset for cursor when scrolling off the screen
 set scrolloff=3
 
 " Set search options
@@ -11,10 +17,9 @@ set hlsearch    " highlight matches
 set ignorecase  " ignore case when searching
 set smartcase   " ignore case if search pattern is all lowercase, case-sensitive otherwise
 
-" Define main keys
-let mapleader = " "
-inoremap jk <ESC>
-inoremap kj <ESC> " Still clumsy?
+" ================================================================
+" Movement
+" ================================================================
 
 " Easy movement over folded lines
 nnoremap j gj
@@ -24,10 +29,6 @@ nnoremap k gk
 nnoremap g; :action VcsShowNextChangeMarker<CR>
 nnoremap g, :action VcsShowPrevChangeMarker<CR>
 
-" Change vim marks for IDE bookmarks
-nnoremap m :action ToggleBookmarkWithMnemonic<CR>
-nnoremap ' :action ShowBookmarks<CR>
-
 " Easy navigation between functions/methods
 nnoremap ] :action MethodDown<CR>
 nnoremap [ :action MethodUp<CR>
@@ -35,14 +36,37 @@ nnoremap [ :action MethodUp<CR>
 " Press s to activate AceJump
 map s :action AceAction<CR>
 
-" Leader Shortcuts
+" ================================================================
+" Editing
+" ================================================================
+
+" Escape
+inoremap jk <ESC>
+inoremap kj <ESC>
+
+" Leaderj
+let mapleader = " "
+
+" Copy until the end of the line
+noremap Y y$
+
+" Change vim marks for IDE bookmarks
+nnoremap m :action ToggleBookmarkWithMnemonic<CR>
+nnoremap ' :action ShowBookmarks<CR>
+
+" ================================================================
+" Actions
 " :actionlist [pattern] find IDE actions by pattern name
+" ================================================================
+
 map <leader>a :action Annotate<CR>
 map <leader>b :action Back<CR>
 map <leader>f :action Forward<CR>
 map <leader>s :action FileStructurePopup<CR>
 
-" Leader Shortcuts for External Tools
+" ================================================================
+" Tools
+" ================================================================
 map <leader>p :action ActivatePythonConsoleToolWindow<CR>
 map <leader>' :action ActivateTerminalToolWindow<CR>
 map <leader>l :action Tool_External Tools_pylint<CR>
