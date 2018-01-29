@@ -5,7 +5,7 @@
 " set system clipboard as default
 set clipboard=unnamedplus,unnamed
 
-" Enable pope surrond
+" Enable pope surround
 set surround
 
 " set offset for cursor when scrolling off the screen
@@ -67,6 +67,17 @@ map <leader>s :action FileStructurePopup<CR>
 " ================================================================
 " Tools
 " ================================================================
+
 map <leader>p :action ActivatePythonConsoleToolWindow<CR>
 map <leader>' :action ActivateTerminalToolWindow<CR>
 map <leader>l :action Tool_External Tools_pylint<CR>
+
+" ================================================================
+" Control .ideavimrc file
+" ================================================================
+
+" Edit ideavim config
+map <leader>ve :e ~/.ideavimrc<CR>
+
+" Reload .ideavimrc
+map <leader>vr :source ~/.ideavimrc<CR>
