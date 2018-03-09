@@ -66,7 +66,7 @@ nnoremap gO O<Esc>j
 map <leader>a :action Annotate<CR>
 map <leader>b :action Back<CR>
 map <leader>f :action Forward<CR>
-mpa <leader>r :action ChooseRunConfiguration<CR>
+map <leader>r :action ChooseRunConfiguration<CR>
 map <leader>s :action FileStructurePopup<CR>
 
 " ================================================================
@@ -97,4 +97,4 @@ map <leader>vew :e /Users/jan.chwiejczak/.ideavimrc<CR>
 " Reload .ideavimrc
 map <leader>vr :source ~/.ideavimrc<CR>
 " Reload .ideavimrc Win
-map <leader>vrw :e /Users/jan.chwiejczak/.ideavimrc<CR>
+map <leader>vrw :source /Users/jan.chwiejczak/.ideavimrc<CR>
