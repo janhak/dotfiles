@@ -27,7 +27,7 @@ set autoindent      " always set autoindenting on
 set copyindent      " copy the previous indentation on autoindenting
 " }}}
 " UI Config {{{
-set clipboard^=unnamed
+set clipboard=unnamed
 set wildmenu      " visual autocomplete for command menu
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set showmatch     " highlight matching [{()}]
