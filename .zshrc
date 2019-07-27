@@ -73,7 +73,7 @@ plugins=(git python pip pyenv)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-eval `dircolors /home/jan/solarized/dircolors`
+# eval `dircolors /home/jan/solarized/dircolors`
 # powerline-daemon -q
 # . ~/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
 # if [[ -r  ~/.local/lib/python3.5/site-packages/powerline/zsh ]]; then
@@ -119,5 +119,6 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # Add Node Version Manager
-#export NVM_DIR="/home/jan/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
