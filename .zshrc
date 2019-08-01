@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -68,36 +68,28 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python pip pyenv)
+plugins=(
+    globalias
+    python 
+    pip 
+    pyenv
+    zsh-autosuggestions
+    zsh-completions
+)
 
+autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-# eval `dircolors /home/jan/solarized/dircolors`
-# powerline-daemon -q
-# . ~/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
-# if [[ -r  ~/.local/lib/python3.5/site-packages/powerline/zsh ]]; then
-#     source  ~/.local/lib/python3.5/site-packages/powerline/zsh/powerline.zsh
-# fi
 
-# Set up lines for pyenv
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
+# Add Command hihglithing
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -114,11 +106,16 @@ source $ZSH/oh-my-zsh.sh
 # Set up custom alias for git operations in home folder
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-# Add Ruby Version Manager to PATH for scripting
-#export PATH="$PATH:$HOME/.rvm/bin"
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
 # Add Node Version Manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Fix for long agnoster theme user prompt https://github.com/robbyrussell/oh-my-zsh/issues/5581
+prompt_context() {}
+
+# Added by pipx (https://github.com/pipxproject/pipx)
+export PATH="$HOME/.local/bin:$PATH"
+
+# Added by SCM breeze
+[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
