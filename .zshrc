@@ -69,6 +69,8 @@ ZSH_THEME="agnoster"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+    docker
+    docker-compose
     globalias
     python 
     pip 
@@ -117,5 +119,19 @@ prompt_context() {}
 # Added by pipx (https://github.com/pipxproject/pipx)
 export PATH="$HOME/.local/bin:$PATH"
 
+# Expose command line launcher for jetbrains tools
+export PATH="$HOME/.jetbrains_tools:$PATH"
+
 # Added by SCM breeze
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+
+# Organize further settings settings in individual files
+function source_all_my_settings(){
+    FOLDER_TO_BE_SOURCED=~/.my_settings/
+    for i in `find $FOLDER_TO_BE_SOURCED -type f`; 
+    do
+        . $i
+    done;
+}
+
+source_all_my_settings
